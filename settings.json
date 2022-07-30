@@ -1,10 +1,8 @@
 {
-    "repeat_time": null,
-    // "notification_if_not_updated": true,
+    "repeat_time": 3600,
     "UID": "",
     "page_id": "",
-    "last_position": 33,
-    // "update_time": 1659166648,
+    "last_position": 0,
     "notifications": [
         "Telegram"
     ]
