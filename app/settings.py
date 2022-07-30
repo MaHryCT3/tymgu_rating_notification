@@ -17,8 +17,22 @@ def get_settings_dict() -> dict:
         try:
             return json.load(settings)
         except Exception as e:
-            raise CantGetSettings(e)
-        
+            raise CantGetSettings
+
+def set_settings(name, value):
+    settings = get_settings_dict()
+    if settings.get(name) is None:
+        raise ValueError("Указанного параметра не найденно в настройках, добавлять свои нельзя")
+    settings[name] = value
+    _update_settings_json(settings)
+
+
+def _update_settings_json(data: dict):
+    with open("./settings.json", "w") as settings:
+        try:
+            json.dump(data, settings, indent=4)        
+        except:
+            raise # TODO: Добавить какую то ошибку мб, но мне пока лень)
 
 if __name__ == "__main__":
-    print(get_settings("UID"))
+    set_settings("last_position", 1010)

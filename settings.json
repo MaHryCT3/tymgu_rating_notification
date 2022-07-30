@@ -1,8 +1,11 @@
 {
-    "repeat_time": 60,
-    "notification_if_not_updated": true,
-    "UID": "191-386-574 01",
-    "page_id": "78f7edd5-b6ba-407c-b4cf-a575d1cae087",
-    "last_position": null,
-    "update_time": null
+    "repeat_time": null,
+    // "notification_if_not_updated": true,
+    "UID": "",
+    "page_id": "",
+    "last_position": 33,
+    // "update_time": 1659166648,
+    "notifications": [
+        "Telegram"
+    ]
 }
