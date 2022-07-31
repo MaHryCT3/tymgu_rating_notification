@@ -4,8 +4,7 @@ build-w:
 	pip install -r requirements.txt
 	echo "Successfully builded, run make start"
 start-w:
-	.\venv\Scripts\activate
-	python app
+	.\venv\Scripts\python app
 
 build:
 	python3 -m venv venv

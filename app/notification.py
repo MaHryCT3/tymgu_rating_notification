@@ -4,8 +4,6 @@ import os
 from exceptions import NoNotificationSettings, AuthorizationError
 from dotenv import load_dotenv
 
-load_dotenv()
-
 
 class Notification(Protocol):
     

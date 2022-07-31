@@ -1,6 +1,15 @@
 import json
 from exceptions import CantGetSettings
+from dataclasses import dataclass
+from notification import Notification
 
+@dataclass
+class Settings:
+    repeat_time: int
+    UID: str
+    page_id: str
+    last_position: int
+    notifications: list[Notification]
 
 def get_settings(name: str):
     """Получения значения из settings.json"""
@@ -9,6 +18,11 @@ def get_settings(name: str):
     if parametr == "None":
         raise CantGetSettings
     return parametr
+
+
+def get_all_settings() -> Settings:
+    settings = get_settings_dict()
+    return Settings(**settings)
 
 
 def get_settings_dict() -> dict:
@@ -33,6 +47,3 @@ def _update_settings_json(data: dict):
             json.dump(data, settings, indent=4)        
         except:
             raise # TODO: Добавить какую то ошибку мб, но мне пока лень)
-
-if __name__ == "__main__":
-    set_settings("last_position", 1010)
