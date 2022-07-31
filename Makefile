@@ -1,16 +1,7 @@
-build-w:
-	python -m venv venv
-	.\venv\Scripts\activate
-	pip install -r requirements.txt
-	echo "Successfully builded, run make start"
-start-w:
-	.\venv\Scripts\python app
-
 build:
-	python3 -m venv venv
-	source .\venv\Scripts\activate
-	pip install -r requirements.txt
-	echo "Successfully builded, run make start"
+	docker build . -t "rating_notification"
+	docker create --name rating_notification rating_notification
 start:
-	source .\venv\Scripts\activate
-	python3 app
+	docker run -d rating_notification
+stop:
+	docker stop rating_notification
